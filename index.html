@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoltiStore</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            padding: 0;
+        }
+        .taskbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-bottom: 2px solid #eaeaea;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed; /* Makes it stick to the top */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .taskbar img {
+            height: 50px;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #007bff;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .search-bar input {
+            padding: 8px 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 250px;
+            outline: none;
+            transition: box-shadow 0.3s ease;
+        }
+        .search-bar input:focus {
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+        }
+        .search-bar button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            padding: 80px 20px; /* Adds spacing to ensure content isn't hidden under the fixed taskbar */
+        }
+    </style>
+</head>
+<body>
+    <div class="taskbar">
+        <img src="logo.png" alt="Logo" onclick="resetPage()"> <!-- Logo as reset button -->
+        <div class="nav-links">
+            <a href="#">Games</a>
+            <a href="#">Social</a>
+            <a href="#">Sell</a>
+            <a href="#">About</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="search()">Search</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Welcome to the Website</h1>
+       
+    </div>
+
+    <script>
+        // Function to reset the page and go to solti.html
+        function resetPage() {
+            window.location.href = "soltisales.html"; // Redirects to solti.html
+        }
+
+        // Function to handle search
+        function search() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            const urls = {
+                "youtube": "https://www.youtube.com",
+                "google": "https://www.google.com",
+                "facebook": "https://www.facebook.com",
+                "twitter": "https://www.twitter.com",
+                "amazon": "https://www.amazon.com",
+                "github": "https://www.github.com",
+                "stackoverflow": "https://stackoverflow.com",
+                "reddit": "https://www.reddit.com",
+                "linkedin": "https://www.linkedin.com",
+                "instagram": "https://www.instagram.com"
+            };
+            if (urls[query]) {
+                window.location.href = urls[query];
+            } else {
+                alert("Search prompt not recognized!");
+            }
+        }
+    </script>
+</body>
+</html>
